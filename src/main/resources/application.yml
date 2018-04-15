@@ -1,0 +1,10 @@
+mybatis:
+  type-aliases-package: com.jxlg.haoqi.wechatreader.pojo
+  mapper-locations: classpath:mappers/*.xml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/wxchatreader
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource

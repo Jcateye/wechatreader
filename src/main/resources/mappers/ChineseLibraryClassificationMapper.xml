@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxlg.haoqi.wechatreader.dao.ChineseLibraryClassificationMapper">
+  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="parent_id" jdbcType="CHAR" property="parentId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="level" jdbcType="TINYINT" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, class_name, code, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from chinese_library_classification
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from chinese_library_classification
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    insert into chinese_library_classification (id, parent_id, class_name, 
+      code, level)
+    values (#{id,jdbcType=CHAR}, #{parentId,jdbcType=CHAR}, #{className,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    insert into chinese_library_classification
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    update chinese_library_classification
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    update chinese_library_classification
+    set parent_id = #{parentId,jdbcType=CHAR},
+      class_name = #{className,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      level = #{level,jdbcType=TINYINT}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="parent_id" jdbcType="CHAR" property="parentId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="level" jdbcType="TINYINT" property="level" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, class_name, code, level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from chinese_library_classification
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from chinese_library_classification
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    insert into chinese_library_classification (id, parent_id, class_name, 
+      code, level)
+    values (#{id,jdbcType=CHAR}, #{parentId,jdbcType=CHAR}, #{className,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    insert into chinese_library_classification
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    update chinese_library_classification
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.ChineseLibraryClassification">
+    update chinese_library_classification
+    set parent_id = #{parentId,jdbcType=CHAR},
+      class_name = #{className,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      level = #{level,jdbcType=TINYINT}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
