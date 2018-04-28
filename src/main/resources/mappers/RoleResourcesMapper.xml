@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jxlg.haoqi.wechatreader.dao.RoleResourcesMapper" >
+  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.RoleResources" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="resources_id" property="resourcesId" jdbcType="CHAR" />
+    <result column="role_id" property="roleId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, resources_id, role_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from role_resources
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from role_resources
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.RoleResources" >
+    insert into role_resources (id, resources_id, role_id
+      )
+    values (#{id,jdbcType=CHAR}, #{resourcesId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.RoleResources" >
+    insert into role_resources
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="resourcesId != null" >
+        resources_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="resourcesId != null" >
+        #{resourcesId,jdbcType=CHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.RoleResources" >
+    update role_resources
+    <set >
+      <if test="resourcesId != null" >
+        resources_id = #{resourcesId,jdbcType=CHAR},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.RoleResources" >
+    update role_resources
+    set resources_id = #{resourcesId,jdbcType=CHAR},
+      role_id = #{roleId,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
