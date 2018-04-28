@@ -1,129 +1,128 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jxlg.haoqi.wechatreader.dao.ReaderBarrageMapper">
-  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage">
-    <id column="id" jdbcType="CHAR" property="id" />
-    <result column="book_id" jdbcType="CHAR" property="bookId" />
-    <result column="reader_id" jdbcType="CHAR" property="readerId" />
-    <result column="details" jdbcType="VARCHAR" property="details" />
-    <result column="coord" jdbcType="SMALLINT" property="coord" />
-    <result column="state" jdbcType="TINYINT" property="state" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="updare_time" jdbcType="TIMESTAMP" property="updareTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jxlg.haoqi.wechatreader.dao.ReaderBarrageMapper" >
+  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="book_id" property="bookId" jdbcType="VARCHAR" />
+    <result column="reader_id" property="readerId" jdbcType="VARCHAR" />
+    <result column="details" property="details" jdbcType="VARCHAR" />
+    <result column="coord" property="coord" jdbcType="SMALLINT" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updare_time" property="updareTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, book_id, reader_id, details, coord, state, create_time, updare_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from reader_barrage
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from reader_barrage
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage">
+  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage" >
     insert into reader_barrage (id, book_id, reader_id, 
       details, coord, state, 
       create_time, updare_time)
-    values (#{id,jdbcType=CHAR}, #{bookId,jdbcType=CHAR}, #{readerId,jdbcType=CHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{readerId,jdbcType=VARCHAR}, 
       #{details,jdbcType=VARCHAR}, #{coord,jdbcType=SMALLINT}, #{state,jdbcType=TINYINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updareTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage">
+  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage" >
     insert into reader_barrage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="bookId != null">
+      <if test="bookId != null" >
         book_id,
       </if>
-      <if test="readerId != null">
+      <if test="readerId != null" >
         reader_id,
       </if>
-      <if test="details != null">
+      <if test="details != null" >
         details,
       </if>
-      <if test="coord != null">
+      <if test="coord != null" >
         coord,
       </if>
-      <if test="state != null">
+      <if test="state != null" >
         state,
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="updareTime != null">
+      <if test="updareTime != null" >
         updare_time,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=CHAR},
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="bookId != null">
-        #{bookId,jdbcType=CHAR},
+      <if test="bookId != null" >
+        #{bookId,jdbcType=VARCHAR},
       </if>
-      <if test="readerId != null">
-        #{readerId,jdbcType=CHAR},
+      <if test="readerId != null" >
+        #{readerId,jdbcType=VARCHAR},
       </if>
-      <if test="details != null">
+      <if test="details != null" >
         #{details,jdbcType=VARCHAR},
       </if>
-      <if test="coord != null">
+      <if test="coord != null" >
         #{coord,jdbcType=SMALLINT},
       </if>
-      <if test="state != null">
+      <if test="state != null" >
         #{state,jdbcType=TINYINT},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updareTime != null">
+      <if test="updareTime != null" >
         #{updareTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage">
+  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage" >
     update reader_barrage
-    <set>
-      <if test="bookId != null">
-        book_id = #{bookId,jdbcType=CHAR},
+    <set >
+      <if test="bookId != null" >
+        book_id = #{bookId,jdbcType=VARCHAR},
       </if>
-      <if test="readerId != null">
-        reader_id = #{readerId,jdbcType=CHAR},
+      <if test="readerId != null" >
+        reader_id = #{readerId,jdbcType=VARCHAR},
       </if>
-      <if test="details != null">
+      <if test="details != null" >
         details = #{details,jdbcType=VARCHAR},
       </if>
-      <if test="coord != null">
+      <if test="coord != null" >
         coord = #{coord,jdbcType=SMALLINT},
       </if>
-      <if test="state != null">
+      <if test="state != null" >
         state = #{state,jdbcType=TINYINT},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updareTime != null">
+      <if test="updareTime != null" >
         updare_time = #{updareTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage">
+  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.ReaderBarrage" >
     update reader_barrage
-    set book_id = #{bookId,jdbcType=CHAR},
-      reader_id = #{readerId,jdbcType=CHAR},
+    set book_id = #{bookId,jdbcType=VARCHAR},
+      reader_id = #{readerId,jdbcType=VARCHAR},
       details = #{details,jdbcType=VARCHAR},
       coord = #{coord,jdbcType=SMALLINT},
       state = #{state,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updare_time = #{updareTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-
 </mapper>

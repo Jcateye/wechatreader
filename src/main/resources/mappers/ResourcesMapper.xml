@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jxlg.haoqi.wechatreader.dao.ResourcesMapper" >
   <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.Resources" >
-    <id column="id" property="id" jdbcType="CHAR" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="resources_name" property="resourcesName" jdbcType="VARCHAR" />
     <result column="resources_url" property="resourcesUrl" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
@@ -16,17 +16,17 @@
     select 
     <include refid="Base_Column_List" />
     from resources
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from resources
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.Resources" >
     insert into resources (id, resources_name, resources_url, 
       type, parent_id, sort
       )
-    values (#{id,jdbcType=CHAR}, #{resourcesName,jdbcType=VARCHAR}, #{resourcesUrl,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{resourcesName,jdbcType=VARCHAR}, #{resourcesUrl,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}
       )
   </insert>
@@ -54,7 +54,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=CHAR},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="resourcesName != null" >
         #{resourcesName,jdbcType=VARCHAR},
@@ -92,7 +92,7 @@
         sort = #{sort,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.Resources" >
     update resources
@@ -101,6 +101,6 @@
       type = #{type,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

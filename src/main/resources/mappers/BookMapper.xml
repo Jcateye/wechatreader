@@ -1,175 +1,175 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jxlg.haoqi.wechatreader.dao.BookMapper">
-  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.Book">
-    <id column="id" jdbcType="CHAR" property="id" />
-    <result column="author" jdbcType="VARCHAR" property="author" />
-    <result column="translator" jdbcType="VARCHAR" property="translator" />
-    <result column="press" jdbcType="VARCHAR" property="press" />
-    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
-    <result column="words_total" jdbcType="VARCHAR" property="wordsTotal" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="classes" jdbcType="VARCHAR" property="classes" />
-    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
-    <result column="intro" jdbcType="VARCHAR" property="intro" />
-    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jxlg.haoqi.wechatreader.dao.BookMapper" >
+  <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.Book" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="translator" property="translator" jdbcType="VARCHAR" />
+    <result column="press" property="press" jdbcType="VARCHAR" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="words_total" property="wordsTotal" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="classes" property="classes" jdbcType="VARCHAR" />
+    <result column="cover_url" property="coverUrl" jdbcType="VARCHAR" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="catalog" property="catalog" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, author, translator, press, isbn, words_total, price, classes, cover_url, intro, 
     catalog, create_time, update_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from book
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from book
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book">
+  <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book" >
     insert into book (id, author, translator, 
       press, isbn, words_total, 
       price, classes, cover_url, 
       intro, catalog, create_time, 
       update_time)
-    values (#{id,jdbcType=CHAR}, #{author,jdbcType=VARCHAR}, #{translator,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{translator,jdbcType=VARCHAR}, 
       #{press,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR}, #{wordsTotal,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL}, #{classes,jdbcType=VARCHAR}, #{coverUrl,jdbcType=VARCHAR}, 
       #{intro,jdbcType=VARCHAR}, #{catalog,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book">
+  <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book" >
     insert into book
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="author != null">
+      <if test="author != null" >
         author,
       </if>
-      <if test="translator != null">
+      <if test="translator != null" >
         translator,
       </if>
-      <if test="press != null">
+      <if test="press != null" >
         press,
       </if>
-      <if test="isbn != null">
+      <if test="isbn != null" >
         isbn,
       </if>
-      <if test="wordsTotal != null">
+      <if test="wordsTotal != null" >
         words_total,
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price,
       </if>
-      <if test="classes != null">
+      <if test="classes != null" >
         classes,
       </if>
-      <if test="coverUrl != null">
+      <if test="coverUrl != null" >
         cover_url,
       </if>
-      <if test="intro != null">
+      <if test="intro != null" >
         intro,
       </if>
-      <if test="catalog != null">
+      <if test="catalog != null" >
         catalog,
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         update_time,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=CHAR},
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="author != null">
+      <if test="author != null" >
         #{author,jdbcType=VARCHAR},
       </if>
-      <if test="translator != null">
+      <if test="translator != null" >
         #{translator,jdbcType=VARCHAR},
       </if>
-      <if test="press != null">
+      <if test="press != null" >
         #{press,jdbcType=VARCHAR},
       </if>
-      <if test="isbn != null">
+      <if test="isbn != null" >
         #{isbn,jdbcType=VARCHAR},
       </if>
-      <if test="wordsTotal != null">
+      <if test="wordsTotal != null" >
         #{wordsTotal,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="classes != null">
+      <if test="classes != null" >
         #{classes,jdbcType=VARCHAR},
       </if>
-      <if test="coverUrl != null">
+      <if test="coverUrl != null" >
         #{coverUrl,jdbcType=VARCHAR},
       </if>
-      <if test="intro != null">
+      <if test="intro != null" >
         #{intro,jdbcType=VARCHAR},
       </if>
-      <if test="catalog != null">
+      <if test="catalog != null" >
         #{catalog,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book">
+  <update id="updateByPrimaryKeySelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book" >
     update book
-    <set>
-      <if test="author != null">
+    <set >
+      <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
       </if>
-      <if test="translator != null">
+      <if test="translator != null" >
         translator = #{translator,jdbcType=VARCHAR},
       </if>
-      <if test="press != null">
+      <if test="press != null" >
         press = #{press,jdbcType=VARCHAR},
       </if>
-      <if test="isbn != null">
+      <if test="isbn != null" >
         isbn = #{isbn,jdbcType=VARCHAR},
       </if>
-      <if test="wordsTotal != null">
+      <if test="wordsTotal != null" >
         words_total = #{wordsTotal,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price = #{price,jdbcType=DECIMAL},
       </if>
-      <if test="classes != null">
+      <if test="classes != null" >
         classes = #{classes,jdbcType=VARCHAR},
       </if>
-      <if test="coverUrl != null">
+      <if test="coverUrl != null" >
         cover_url = #{coverUrl,jdbcType=VARCHAR},
       </if>
-      <if test="intro != null">
+      <if test="intro != null" >
         intro = #{intro,jdbcType=VARCHAR},
       </if>
-      <if test="catalog != null">
+      <if test="catalog != null" >
         catalog = #{catalog,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book">
+  <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book" >
     update book
     set author = #{author,jdbcType=VARCHAR},
       translator = #{translator,jdbcType=VARCHAR},
@@ -183,6 +183,6 @@
       catalog = #{catalog,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

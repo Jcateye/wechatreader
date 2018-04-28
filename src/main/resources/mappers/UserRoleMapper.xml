@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jxlg.haoqi.wechatreader.dao.UserRoleMapper" >
   <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.UserRole" >
-    <id column="id" property="id" jdbcType="CHAR" />
-    <result column="user_id" property="userId" jdbcType="CHAR" />
-    <result column="role_id" property="roleId" jdbcType="CHAR" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, user_id, role_id
@@ -13,15 +13,17 @@
     select 
     <include refid="Base_Column_List" />
     from user_role
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user_role
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.UserRole" >
-    insert into user_role (id, user_id, role_id)
-    values (#{id,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{roleId,jdbcType=CHAR})
+    insert into user_role (id, user_id, role_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.UserRole" >
     insert into user_role
@@ -38,13 +40,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=CHAR},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="userId != null" >
-        #{userId,jdbcType=CHAR},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="roleId != null" >
-        #{roleId,jdbcType=CHAR},
+        #{roleId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -52,18 +54,18 @@
     update user_role
     <set >
       <if test="userId != null" >
-        user_id = #{userId,jdbcType=CHAR},
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="roleId != null" >
-        role_id = #{roleId,jdbcType=CHAR},
+        role_id = #{roleId,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.UserRole" >
     update user_role
-    set user_id = #{userId,jdbcType=CHAR},
-      role_id = #{roleId,jdbcType=CHAR}
-    where id = #{id,jdbcType=CHAR}
+    set user_id = #{userId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jxlg.haoqi.wechatreader.dao.RoleMapper" >
   <resultMap id="BaseResultMap" type="com.jxlg.haoqi.wechatreader.pojo.Role" >
-    <id column="id" property="id" jdbcType="CHAR" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
     <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
@@ -14,16 +14,16 @@
     select 
     <include refid="Base_Column_List" />
     from role
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from role
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.jxlg.haoqi.wechatreader.pojo.Role" >
     insert into role (id, role_name, role_code, 
       description)
-    values (#{id,jdbcType=CHAR}, #{roleName,jdbcType=VARCHAR}, #{roleCode,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleCode,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Role" >
@@ -44,7 +44,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=CHAR},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
@@ -70,13 +70,13 @@
         description = #{description,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jxlg.haoqi.wechatreader.pojo.Role" >
     update role
     set role_name = #{roleName,jdbcType=VARCHAR},
       role_code = #{roleCode,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
