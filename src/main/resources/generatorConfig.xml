@@ -56,35 +56,38 @@
         <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
 
 
-        <!--<table tableName="book"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-          <!--<table tableName="bookrack"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-          <!--<table tableName="book_review"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-          <!--<table tableName="book_review_interaction"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-          <!--<table tableName="reader_barrage"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-          <!--<table tableName="read_note"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                 <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-  <!--<table tableName="user"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-                      <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-<!--<table tableName="role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="role_resources"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="resources"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="user_role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="chinese_library_classification"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="volume"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="chapter"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-
+        <table tableName="book"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+          <table tableName="bookrack"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+          <table tableName="book_review"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+          <table tableName="book_review_interaction"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+          <table tableName="reader_barrage"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+          <table tableName="read_note"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                 enableSelectByExample="false" selectByExampleQueryId="false"></table>
+  <table tableName="user"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                      enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<table tableName="role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="role_resources"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="resources"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="user_role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="chinese_library_classification"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="volume"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="wx_user"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="read_log"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+                                                                                    enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="chapter"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
     </context>
 </generatorConfiguration>

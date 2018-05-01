@@ -31,6 +31,8 @@ public class User implements Serializable {
 
     private Date updareTime;
 
+    private Integer enable;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -135,5 +137,13 @@ public class User implements Serializable {
 
     public void setUpdareTime(Date updareTime) {
         this.updareTime = updareTime;
+    }
+
+    public Integer getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Integer enable) {
+        this.enable = enable;
     }
 }
