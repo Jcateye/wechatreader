@@ -14,4 +14,6 @@ public interface WxUserMapper {
     int updateByPrimaryKeySelective(WxUser record);
 
     int updateByPrimaryKey(WxUser record);
+
+    WxUser selectByOpenId(String openId);
 }

@@ -2,6 +2,8 @@ package com.jxlg.haoqi.wechatreader.dao;
 
 import com.jxlg.haoqi.wechatreader.pojo.Bookrack;
 
+import java.util.List;
+
 public interface BookrackMapper {
     int deleteByPrimaryKey(String id);
 
@@ -11,7 +13,11 @@ public interface BookrackMapper {
 
     Bookrack selectByPrimaryKey(String id);
 
+    List<Bookrack> selectByReadId(String readerId);
+
     int updateByPrimaryKeySelective(Bookrack record);
 
     int updateByPrimaryKey(Bookrack record);
+
+    Bookrack selectByReadIdAndBookId(Bookrack record);
 }

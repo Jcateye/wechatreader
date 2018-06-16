@@ -16,4 +16,6 @@ public interface ChapterMapper {
     int updateByPrimaryKeyWithBLOBs(Chapter record);
 
     int updateByPrimaryKey(Chapter record);
+
+    Chapter selectByBookIdAndSequ(Chapter record);
 }

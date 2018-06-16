@@ -14,6 +14,10 @@ public class BookReview implements Serializable {
 
     private Date updareTime;
 
+    private String title;
+
+    private String parentId;
+
     private String details;
 
     private static final long serialVersionUID = 1L;
@@ -56,6 +60,22 @@ public class BookReview implements Serializable {
 
     public void setUpdareTime(Date updareTime) {
         this.updareTime = updareTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId == null ? null : parentId.trim();
     }
 
     public String getDetails() {

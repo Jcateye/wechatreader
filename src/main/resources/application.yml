@@ -1,7 +1,8 @@
 spring:
 # 数据源基础配置
   datasource:
-    url: jdbc:mysql://localhost:3306/wxchatreader
+    url: jdbc:mysql://localhost:3306/wxchatreader?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
@@ -16,12 +17,6 @@ spring:
 mybatis:
   type-aliases-package: com.jxlg.haoqi.wechatreader.pojo
   mapper-locations: classpath:mappers/*.xml
-
-mapper:
-    mappers:
-        - tk.mybatis.springboot.util.MyMapper
-    not-empty: false
-    identity: MYSQL
 
 pagehelper:
   helper-dialect: mysql

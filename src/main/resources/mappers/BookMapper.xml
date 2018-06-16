@@ -15,10 +15,11 @@
     <result column="catalog" property="catalog" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, author, translator, press, isbn, words_total, price, classes, cover_url, intro, 
-    catalog, create_time, update_time
+    catalog, create_time, update_time, book_name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -26,6 +27,22 @@
     from book
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectSimpleByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    id,author, cover_url, intro,book_name
+    from book
+    where id = #{id,jdbcType=VARCHAR}
+    ORDER BY update_time DESC
+  </select>
+
+  <select id="selectByBookName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from book
+    where book_name like '%${bookName}%';
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from book
     where id = #{id,jdbcType=VARCHAR}
@@ -35,12 +52,12 @@
       press, isbn, words_total, 
       price, classes, cover_url, 
       intro, catalog, create_time, 
-      update_time)
+      update_time, book_name)
     values (#{id,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{translator,jdbcType=VARCHAR}, 
       #{press,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR}, #{wordsTotal,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL}, #{classes,jdbcType=VARCHAR}, #{coverUrl,jdbcType=VARCHAR}, 
       #{intro,jdbcType=VARCHAR}, #{catalog,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{updateTime,jdbcType=TIMESTAMP}, #{bookName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jxlg.haoqi.wechatreader.pojo.Book" >
     insert into book
@@ -84,6 +101,9 @@
       <if test="updateTime != null" >
         update_time,
       </if>
+      <if test="bookName != null" >
+        book_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -124,6 +144,9 @@
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bookName != null" >
+        #{bookName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -166,6 +189,9 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="bookName != null" >
+        book_name = #{bookName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -182,7 +208,8 @@
       intro = #{intro,jdbcType=VARCHAR},
       catalog = #{catalog,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      book_name = #{bookName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

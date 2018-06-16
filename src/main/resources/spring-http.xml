@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+    <!--使用httpclient(Block I/O)的实现，带连接池-->
+    <bean id="pollingConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager">
+        <!--整个连接池的并发-->
+        <property name="maxTotal" value="600" />
+        <!--每个主机的并发-->
+        <property name="defaultMaxPerRoute" value="200" />
+    </bean>
+    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+        <property name="connectionManager" ref="pollingConnectionManager" />
+        <!--开启重试-->
+        <property name="retryHandler">
+            <bean class="org.apache.http.impl.client.DefaultHttpRequestRetryHandler">
+                <constructor-arg value="2"/>
+                <constructor-arg value="true"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
+    <bean id="clientHttpRequestFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+        <constructor-arg ref="httpClient"/>
+        <property name="connectTimeout" value="10000"/>
+        <property name="readTimeout" value="10000"/>
+    </bean>
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg ref="clientHttpRequestFactory"/>
+        <property name="errorHandler">
+            <bean class="org.springframework.web.client.DefaultResponseErrorHandler"/>
+        </property>
+    </bean>
+    <!-- 微信公众号sdk httpclient basic-->
+    <bean id="wxMpClient" class="com.weixin.mp.client.LocalHttpClient">
+        <property name="httpClient" ref="httpClient"/>
+    </bean>
+    
+    <!--使用httpclient(NIO)的实现，带连接池-->
+    <!--<bean id="nioIOReactorConfig" class="org.apache.http.impl.nio.reactor.IOReactorConfig">
+        <property name="ioThreadCount" value="1"/>
+        <property name="connectTimeout" value="5000"/>
+        <property name="soTimeout" value="5000"/>
+    </bean>
+    <bean id="nioConnectingIOReactor" class="org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor">
+        <constructor-arg name="config" ref="nioIOReactorConfig"/>
+    </bean>
+    <bean id="nioConnectionFactory" class="org.apache.http.impl.nio.conn.ManagedNHttpClientConnectionFactory"/>
+    <bean id="nioPollingConnectionManager" class="org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager">
+        <constructor-arg name="ioreactor" ref="nioConnectingIOReactor"/>
+        <constructor-arg name="connFactory" ref="nioConnectionFactory"/>
+        <property name="maxTotal" value="1000" />
+        <property name="defaultMaxPerRoute" value="10" />
+    </bean>
+    <bean id="nioHttpClientBuilder" class="org.apache.http.impl.nio.client.HttpAsyncClientBuilder" factory-method="create">
+        <property name="connectionManager" ref="nioPollingConnectionManager" />
+    </bean>
+    <bean id="asyncHttpClient" factory-bean="nioHttpClientBuilder" factory-method="build"/>
+    <bean id="asyncClientHttpRequestFactory" class="org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory">
+        <constructor-arg ref="asyncHttpClient"/>
+        <property name="connectTimeout" value="5000"/>
+        <property name="readTimeout" value="10000"/>
+    </bean>
+    <bean id="asyncRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg ref="asyncClientHttpRequestFactory"/>
+        <property name="errorHandler">
+            <bean class="org.springframework.web.client.DefaultResponseErrorHandler"/>
+        </property>
+    </bean>-->
+</beans>

@@ -18,6 +18,24 @@
     from bookrack
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByReadId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from bookrack
+    where reader_id = #{readerId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByReadIdAndBookId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from bookrack
+    where reader_id = #{readerId,jdbcType=VARCHAR}
+    and book_id = #{bookId, jdbcType=VARCHAR}
+  </select>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from bookrack
     where id = #{id,jdbcType=VARCHAR}

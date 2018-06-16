@@ -31,6 +31,8 @@ public class Book implements Serializable {
 
     private Date updateTime;
 
+    private String bookName;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -135,5 +137,13 @@ public class Book implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName == null ? null : bookName.trim();
     }
 }
